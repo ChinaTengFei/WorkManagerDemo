@@ -3,6 +3,7 @@ package com.ittengfei.workmanagerstudy;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import androidx.work.Data;
 import androidx.work.Worker;
 
 /**
@@ -15,6 +16,7 @@ public class MyWorker extends Worker {
     @Override
     public WorkerResult doWork() {
         Log.d(TAG, "doWork() called");
+        setOutputData(new Data.Builder().putString("a","B").build());
         return WorkerResult.SUCCESS;
     }
 }
